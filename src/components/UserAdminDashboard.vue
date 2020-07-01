@@ -1,24 +1,27 @@
 <template>
   <div class="user-admin-dashboard">
-    <Search></Search>
-    <Table></Table>
+    <Search v-model="searchTerm"></Search>
+    <Table :data="users" :searchTerm="searchTerm"></Table>
   </div>
 </template>
 
 <script>
 let users = require('../assets/users.json');
 
-import Search from './Search'
 import Table from './Table'
+import Search from './Search'
+
 
 
 export default {
   name: 'HelloWorld',
   components: {
-    Table, Search
+    Table, 
+    Search
   },
   data: () => ({
-    users: users
+    users: users,
+    searchTerm: ''
   }),
 }
 </script>
